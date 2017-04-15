@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from __future__ import print_function
 
 import sys
 import datetime
@@ -29,7 +30,7 @@ def roundTime(dt=None, roundTo=60*60):
    return dt + datetime.timedelta(0,rounding-seconds,-dt.microsecond)
 
 if len(sys.argv) < 2:
-    print 'Usage: sun [option], where option = rise/set. Prints hour for sunrise/sunset.'
+    print('Usage: sun [option], where option = rise/set. Prints hour for sunrise/sunset.')
     sys.exit()
 
 if sys.argv[1] == 'rise':
@@ -37,7 +38,7 @@ if sys.argv[1] == 'rise':
 elif sys.argv[1] == 'set':
     dt = sunset
 else:
-    print 'Usage: sun [option], where option = rise/set. Prints hour for sunrise/sunset.'
+    print('Usage: sun [option], where option = rise/set. Prints hour for sunrise/sunset.')
     sys.exit()
 
-print str(int(roundTime(dt).strftime('%H')) + offset)
+print(str(int(roundTime(dt).strftime('%H')) + offset))
