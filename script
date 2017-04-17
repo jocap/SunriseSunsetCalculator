@@ -35,10 +35,21 @@ if len(sys.argv) < 2:
 
 if sys.argv[1] == 'rise':
     dt = sunrise
+    format_str = '%H'
 elif sys.argv[1] == 'set':
     dt = sunset
+    format_str = '%H'
+elif sys.argv[1] == '_rise':
+    dt = sunrise
+    format_str = '%H.%M'
+elif sys.argv[1] == '_set':
+    dt = sunset
+    format_str = '%H.%M'
 else:
     print('Usage: sun [option], where option = rise/set. Prints hour for sunrise/sunset.')
     sys.exit()
 
-print(str(int(roundTime(dt).strftime('%H')) + offset))
+if format_str == '%H':
+   print(str(int(roundTime(dt).strftime(format_str)) + offset))
+else:
+   print(dt.strftime(format_str))
