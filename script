@@ -52,4 +52,4 @@ else:
 if format_str == '%H':
    print(str(int(roundTime(dt).strftime(format_str)) + offset))
 else:
-   print(dt.strftime(format_str))
+   print(str(float(dt.strftime(format_str)) + offset))
