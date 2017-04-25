@@ -49,6 +49,9 @@ else:
     print('Usage: sun [option], where option = rise/set. Prints hour for sunrise/sunset.')
     sys.exit()
 
+if len(sys.argv) > 2:
+   format_str = sys.argv[2]
+
 if format_str == '%H':
    print(str(int(roundTime(dt).strftime(format_str)) + offset))
 else:
